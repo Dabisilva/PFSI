@@ -1,0 +1,26 @@
+{
+  "name": "projeto-fullstack",
+  "version": "1.0.0",
+  "description": "Projeto com JavaScript, React e React Native",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dabisilva/Projeto-FullStack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dabisilva/Projeto-FullStack/issues"
+  },
+  "homepage": "https://github.com/Dabisilva/Projeto-FullStack#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.21.1",
+    "nodemon": "^2.0.4",
+    "sqlite3": "^4.2.0"
+  }
+}

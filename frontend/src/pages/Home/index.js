@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './styles.css';
 import { FiPower} from 'react-icons/fi'
 
@@ -8,7 +9,7 @@ export default function Home(){
         <>
             <div className="homeContainer">
                 <header>
-                    <a href="">Cadastrar novo aluno</a>
+                    <Link className="button" to="/register">Cadastrar novo aluno</Link>
                     <button onClick={() => {}} type="button">
                     <FiPower size={18} color="#E02041"/>
                     </button>
@@ -22,6 +23,7 @@ export default function Home(){
                         <p>davi1234@gmail.com</p>
                         <strong>CPF:</strong>
                         <p>122455679990</p>
+                        <Link className="update">Atualizar dados</Link>
                     </li>
                     <li>
                         <strong>Nome:</strong>
@@ -30,6 +32,7 @@ export default function Home(){
                         <p>davi1234@gmail.com</p>
                         <strong>CPF:</strong>
                         <p>122455679990</p>
+                        <Link className="update">Atualizar dados</Link>
                     </li>
                     <li>
                         <strong>Nome:</strong>
@@ -38,6 +41,7 @@ export default function Home(){
                         <p>davi1234@gmail.com</p>
                         <strong>CPF:</strong>
                         <p>122455679990</p>
+                        <Link className="update" to="">Atualizar dados</Link>
                     </li>
                     <li>
                         <strong>Nome:</strong>
@@ -46,7 +50,9 @@ export default function Home(){
                         <p>davi1234@gmail.com</p>
                         <strong>CPF:</strong>
                         <p>122455679990</p>
+                        <Link className="update">Atualizar dados</Link>
                     </li>
+                    
                 </ul>
             </div>
         </>

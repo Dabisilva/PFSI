@@ -44,14 +44,13 @@ module.exports = {
 
     async update(request, response){
         const {id} = request.params;
-        const {name, email ,senha} = request.body;
+        const {name, email} = request.body;
 
        await connection('alunos')
             .where('id', id)
             .update({
                 name,
-                email,
-                senha,
+                email
             })
 
         const mostra = await connection('alunos')

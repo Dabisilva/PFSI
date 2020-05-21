@@ -31,8 +31,8 @@
 }
 
 .homeContainer h1{
-    margin-top: 80px;
     margin-bottom: 24px;
+    margin-left: 50px;
 }
 
 .homeContainer ul{
@@ -63,4 +63,25 @@
     color: #737380;
     line-height: 21px;
     font-size: 16px;
+}
+
+.update{
+    width: 30%;
+    height: 40px;
+    background: #093d3b;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 200;
+    margin-top: 16px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 40px;
+    transition: 0.2s;
+}
+
+.update:hover{
+    filter: brightness(90%);
 }

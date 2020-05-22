@@ -5,67 +5,45 @@ import { FiArrowLeft } from 'react-icons/fi';
 import api from '../../services/api';
 import './styles.css';
 
-export default function Register(){
-    const [name, setName]  = useState('');
-    const [email, setEmail] = useState('');
-    const [telefone, setTel] = useState('');
-    const [CPF, setCpf] = useState('');
 
-    const history = useHistory()
+export default function FuncRegister(){
 
-    async function handleRegister(e){
-        e.preventDefault();
-
-        const data = {
-            name,
-            email,
-            telefone,
-            CPF
-        }
-        try{
-            await api.post('/', data)
-            history.push('/List')
-        }
-        catch(err){
-            alert('[ERRO] não foi possivel efetar o cadastro')
-        }
-    }
     return(
         <>
             <div className="newStudent">
                 <div className="content">
                     <section>
-                        <h1>Cadastrar novo aluno</h1>
+                        <h1>Novo Funcionario</h1>
                     </section>
-                    <form onSubmit={handleRegister} >
+                    <form onSubmit={()=>{}} >
                         <input
                             placeholder="Nome"
-                            value={name}
-                            onChange={ e => setName(e.target.value)}
+                            //value={name}
+                            //onChange={ e => setName(e.target.value)}
                             maxLength="50"
                         />
                         <input
                             placeholder="Email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            //value={email}
+                            //onChange={e => setEmail(e.target.value)}
                             maxLength="50"
                         />
                         <input
                             placeholder="Telefone"
-                            value={telefone}
-                            onChange={e => setTel(e.target.value)}
+                            //value={telefone}
+                            //onChange={e => setTel(e.target.value)}
                             maxLength="11"
                         />
                         <input
                             placeholder="CPF"
-                            value={CPF}
-                            onChange={e => setCpf(e.target.value)}
+                            //value={CPF}
+                            //onChange={e => setCpf(e.target.value)}
                             maxLength="11"
                         />
                     </form>
                     <div className="buttons">
                         <button className="button" type="submit">Cadastrar</button>
-                        <Link className="back-link" to="/home">
+                        <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#093d3b"/>
                             Voltar      
                         </Link>

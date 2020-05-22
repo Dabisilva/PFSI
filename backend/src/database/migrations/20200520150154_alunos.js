@@ -1,11 +1,12 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('alunos', function(table){
-              table.increments('id').primary();
+              table.increments();
+        
               table.string('name', 40).notNullable();
               table.string('email', 40).notNullable();
-              table.string('senha', 15).notNullable();
-              table.string('CPF').notNullable();
+              table.string('telefone').notNullable();
+              table.string('CPF', 11).notNullable();
       })
 };
 

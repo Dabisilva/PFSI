@@ -83,5 +83,23 @@
 }
 
 .update:hover{
-    filter: brightness(90%);
+    filter: brightness(50%);
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete{
+    width: 30%;
+    height: 40px;
+    border-radius: 8px;
+    transition: 0.6s;
+    padding-right: 2px;
+}
+
+.delete:hover{
+    background: #ff0000;
+    opacity: 90%;
 }

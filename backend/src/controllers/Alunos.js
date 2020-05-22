@@ -1,7 +1,5 @@
 const connection = require('../database/connection');
 
-const crypto = require('../utils/crypto')
-
 module.exports = {
     async index(request, response){
         const alunos = await connection('alunos').select('*')
@@ -10,15 +8,12 @@ module.exports = {
     },
 
     async create(request, response){
-        const {name , email, CPF} = request.body
-        
-        const senha = crypto()
+        const {name , email, telefone, CPF} = request.body
 
-        
         await connection('alunos').insert({
             name,
             email,
-            senha,
+            telefone,
             CPF
         })
         
@@ -27,14 +22,14 @@ module.exports = {
 
     async delete(request, response){
         const {id} = request.params;
-        const senha = request.headers.authorization;
+        const CPF = request.headers.authorization;
 
         const alunos = await connection('alunos')
             .where('id', id)
-            .select('senha')
+            .select('CPF')
             .first()
         
-        if(alunos.senha != senha){
+        if(alunos.CPF != CPF){
             return response.status('401').json({  error: 'Operation not permitted. '  })
         }
         await connection('alunos').where('id', id).delete();
@@ -44,13 +39,14 @@ module.exports = {
 
     async update(request, response){
         const {id} = request.params;
-        const {name, email} = request.body;
+        const {name, email, telefone} = request.body;
 
        await connection('alunos')
             .where('id', id)
             .update({
                 name,
-                email
+                email,
+                telefone
             })
 
         const mostra = await connection('alunos')

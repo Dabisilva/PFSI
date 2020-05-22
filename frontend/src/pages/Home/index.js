@@ -30,14 +30,20 @@ export default function Home(){
             alert('[ERRO] não foi possivel deletar, tente novamente.')
         }
     }
+    function logout(){
+        localStorage.clear();
+
+        alert('Deseja sair?')
+        history.push('/');
+    }
     return(
         <>
             <div className="homeContainer">
                 <header>
                     <Link className="button" to="/register">Cadastrar novo aluno</Link>
-                    {/* <button onClick={() => {}} type="button">
+                    <button onClick={logout} type="button">
                     <FiPower size={18} color="#E02041"/>
-                    </button> */}
+                    </button>
                 </header>
                 <h1>Alunos Matriculados</h1>
                 <ul>

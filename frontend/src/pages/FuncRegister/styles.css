@@ -1,0 +1,45 @@
+.newFunc{
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center; /*alinha os itens verticalmente*/
+    justify-content: center;
+}
+
+.newFunc .content{
+    width: 50%;
+    padding: 100px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.newFunc .content section{
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+}
+
+.newFunc .content section h1{
+    margin: 64px 0 32px;
+    font-size: 32px;
+}
+
+.newFunc .content form{
+    width: 100%;
+    max-width: 460px;
+}
+
+.newFunc .content button{
+    width: 50%;
+    max-width: 300px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

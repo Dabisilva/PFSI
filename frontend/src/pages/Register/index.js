@@ -24,7 +24,7 @@ export default function Register(){
         }
         try{
             await api.post('/', data)
-            history.push('/List')
+            history.push('/home')
         }
         catch(err){
             alert('[ERRO] não foi possivel efetar o cadastro')
@@ -62,14 +62,14 @@ export default function Register(){
                             onChange={e => setCpf(e.target.value)}
                             maxLength="11"
                         />
+                        <div className="buttons">
+                            <button className="button" type="submit">Cadastrar</button>
+                            <Link className="back-link" to="/home">
+                            <FiArrowLeft size={16} color="#093d3b"/>
+                                Voltar      
+                            </Link>
+                        </div>
                     </form>
-                    <div className="buttons">
-                        <button className="button" type="submit">Cadastrar</button>
-                        <Link className="back-link" to="/home">
-                        <FiArrowLeft size={16} color="#093d3b"/>
-                            Voltar      
-                        </Link>
-                    </div>
                 </div>
             </div>
         </>

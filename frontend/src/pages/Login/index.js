@@ -7,30 +7,50 @@ import api from '../../services/api';
 import './styles.css';
 
 export default function Login(){
+    const [name, setName] = useState('')
+    const [ CPF, setCPF] = useState('')
+
+    const History = useHistory();
+
+    async function handleLogin(e){
+        e.preventDefault()
+
+        try{
+            const response = await api.post('session', {CPF})
+            
+            localStorage.setItem('funcName', name)
+            localStorage.setItem('func', response.data)
+
+            History.push('/home')
+        }catch(err){
+            alert('[ERRO] CPF incorreto, tente novamente.')
+        }    
+    }
 
     return(
         <>
             <div className="container">
                 <div className="logon-container">
                     <section className="form">
-                        <form onSubmit={() =>{}}>
+                        <form onSubmit={handleLogin}>
                             <h1>Faça seu Login</h1>
 
                             <input 
                                 placeholder="Nome"
-                                //value={id}
-                                //onChange={e => setId(e.target.value)}
+                                value={name}
+                                onChange={e => setName(e.target.value)}
                             ></input>
                             <input 
-                                placeholder="Senha"
-                                //value={id}
-                                //onChange={e => setId(e.target.value)}
+                                placeholder="CPF"
+                                maxLength="11"
+                                value={CPF}
+                                onChange={e => setCPF(e.target.value)}
                             ></input>
                             <button className="button" type="submit">Entrar</button>
 
                             <Link className="back-link" to="/FuncRegister">
                                 <FiLogIn size={16} color="#093d3b"/>
-                                Não tenho cadastro
+                                Fazer cadastro
                             </Link>
                         </form>
                     </section>

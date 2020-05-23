@@ -7,6 +7,7 @@ import api from '../../services/api';
 export default function Home(){
     const [alunos, setAlunos] = useState([])
 
+    const funcName = localStorage.getItem('funcName')
     const history = useHistory();
 
     useEffect(() => {
@@ -16,11 +17,17 @@ export default function Home(){
         })
     }, [])
 
-    async function Delete(id){
+    function UpdateAluno(id){
+        history.push(`/List/up/${id}`)
+        localStorage.getItem('alunoId', id)
+        setAlunos(alunos.filter(aluno => aluno.id !== id))
+    }
+
+    async function Delete(id, CPF){
         try{
-            api.delete(`List/${id}`, {
+             await api.delete(`List/${id}`, {
                 headers:{
-                    Authorization: alunos.CPF
+                    Authorization: CPF
                 }
             })
             alert('Certeza que deseja deletar?')
@@ -45,7 +52,8 @@ export default function Home(){
                     <FiPower size={18} color="#E02041"/>
                     </button>
                 </header>
-                <h1>Alunos Matriculados</h1>
+                <h1>Funcionário {funcName}</h1>
+                <h2>Alunos Matriculados</h2>
                 <ul>
                     {alunos.map(aluno => (
                         <li key={aluno.id}>
@@ -62,8 +70,8 @@ export default function Home(){
                         <p>{aluno.CPF}</p>
 
                         <div className="botoes">
-                            <Link className="update">Atualizar dados</Link>
-                            <button onClick={() => Delete(aluno.id)} type="button" className="delete">
+                            <button className="update" onClick={() => UpdateAluno(aluno.id)}>Atualizar dados</button>
+                            <button onClick={() => Delete(aluno.id, aluno.CPF)} type="button" className="delete">
                                 Deletar aluno
                                 <FiTrash2 size={20} color="#093d3b" />
                             </button>

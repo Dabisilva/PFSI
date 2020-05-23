@@ -45,6 +45,7 @@ export default function Register(){
                             maxLength="50"
                         />
                         <input
+                            type="email"
                             placeholder="Email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}

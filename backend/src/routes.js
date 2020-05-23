@@ -9,7 +9,7 @@ const routes = express.Router()
 routes.post('/', Alunos.create);
 routes.get('/List', Alunos.index);
 routes.delete('/List/:id', Alunos.delete);
-routes.patch('/List/up/:id', Alunos.update);
+routes.put('/List/up/:id', Alunos.update);
 
 routes.post('/func', Funcionarios.create)
 routes.get('/func', Funcionarios.index)

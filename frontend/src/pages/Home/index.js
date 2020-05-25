@@ -18,30 +18,33 @@ export default function Home(){
     }, [])
 
     function UpdateAluno(id){
-        history.push(`/List/up/${id}`)
-        localStorage.getItem('alunoId', id)
-        setAlunos(alunos.filter(aluno => aluno.id !== id))
+        try{
+            history.push(`/List/up/${id}`)
+            localStorage.setItem('alunoId', id)
+        }catch(err){
+            alert('[ERRO] serviço indisponifvel, por favor tente novaente')
+        }
     }
 
     async function Delete(id, CPF){
-        try{
-             await api.delete(`List/${id}`, {
-                headers:{
-                    Authorization: CPF
-                }
-            })
-            alert('Certeza que deseja deletar?')
-            setAlunos(alunos.filter(aluno => aluno.id !== id))
-        }
-        catch(err){
-            alert('[ERRO] não foi possivel deletar, tente novamente.')
+        if(window.confirm('Certeza que deseja deletar?')){
+            try{
+                await api.delete(`List/${id}`, {
+                    headers:{
+                        Authorization: CPF
+                    }
+                })
+                setAlunos(alunos.filter(aluno => aluno.id !== id))
+                
+            }catch(err){
+                alert('[ERRO] não foi possivel deletar, tente novamente.')
+            }
         }
     }
     function logout(){
-        localStorage.clear();
-
-        alert('Deseja sair?')
-        history.push('/');
+        if(window.confirm('Deseja sair?')){
+            history.push('/');
+        }
     }
     return(
         <>

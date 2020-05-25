@@ -41,6 +41,7 @@ export default function Login(){
                                 onChange={e => setName(e.target.value)}
                             ></input>
                             <input 
+                                type="password"
                                 placeholder="CPF"
                                 maxLength="11"
                                 value={CPF}

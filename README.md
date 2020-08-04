@@ -1,4 +1,4 @@
-# PFSI
+# PFSI - project for school institutions
 
 Projeto feito com Node e React
 
